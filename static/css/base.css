@@ -10,7 +10,9 @@ body {
     font-family: 'Lora';
 }
 
-
+#topnav{
+    background-color: #A6CF98 !important;
+}
 
 /* from Bulma */
 .icon {
@@ -23,7 +25,7 @@ body {
 
 .logo-font {
     text-transform: uppercase;
-    color:#4444;
+    color: #A6CF98;
 
 }
 
