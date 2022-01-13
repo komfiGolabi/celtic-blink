@@ -3,8 +3,8 @@ html {
 }
 
 body {
-    background: url('/media/home-image.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: url('/media/image-homepage.jpg') no-repeat center center fixed;
+    background-size: cover; 
     height: calc(100vh - 164px);
     color:#2B2B2B;
     font-family: 'Lora';
@@ -46,8 +46,15 @@ body {
 .home-intro{
     color:#A6CF98;
     text-shadow:2px 2px #2B2B2B;
+    z-index:2;
+}
 
-    
+#overlay {
+    z-index: -1; /* Specify a stack order in case you're using a different order for other elements */
+    background-image:url('/media/home-overlay.jpg');
+    opacity:0.8;
+    width:100%;
+    border-radius: 2px;
 }
 
 .shop-now-button:hover,
@@ -56,7 +63,7 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background:#2B2B2B;
+    background:#7F7C82;
     color: #A6CF98;
 }
 
@@ -69,20 +76,28 @@ body {
 }
 
 .bg-black {
-    background: #000 !important;
-}
-/*header .container-fluid {
-    padding-top: 60px;;
-
-}
-footer .mt-auto{
-    margin-top: auto !important;
+    background: #A6CF98 !important;
 }
 
-footer .py-3{
-    padding-bottom: 1rem!important;
-    padding-top: 1rem!important;
+/*------------------------Main image----------------------
+
+.main-image {
+    height:auto;
+    max-width:100%;
+    margin-left:15%;
 }*/
+/*footer{
+   background-color:#343A40;
+   position:relative;
+   bottom:0;
+   z-index: 3; 
+}
+
+.my-auto {
+    margin-top: auto!important;
+    padding-bottom: 1rem!important;
+}
+*/
 
 /* -------------------------------- Media Queries */
 
