@@ -17,10 +17,10 @@
                 Rings
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="rings-link">
-                <a href="" class="dropdown-item">Celtic Knot Rings</a>
-                <a href="" class="dropdown-item">Trinity Rings</a>
-                <a href="" class="dropdown-item">Triskele Rings</a>
-                <a href="" class="dropdown-item">All Rings</a>
+                <a href="{% url 'products' %}?category=celtic_knot_rings" class="dropdown-item">Celtic Knot Rings</a>
+                <a href="{% url 'products' %}?category=trinity_rings" class="dropdown-item">Trinity Rings</a>
+                <a href="{% url 'products' %}?category=triskele_rings" class="dropdown-item">Triskele Rings</a>
+                <a href="{% url 'products' %}?category=celtic_knot_rings,trinity_rings,triskele_rings" class="dropdown-item">All Rings</a>
             </div>
         </li>
 
@@ -29,10 +29,10 @@
                 Pendants
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="pendants-link">
-                <a href="" class="dropdown-item">Celtic Knot Pendants</a>
-                <a href="" class="dropdown-item">Trinity Pendants</a>
-                <a href="" class="dropdown-item">Triskele Pendants</a>
-                <a href="" class="dropdown-item">All Pendants</a>
+                <a href="{% url 'products' %}?category=celtic_knot_pendants" class="dropdown-item">Celtic Knot Pendants</a>
+                <a href="{% url 'products' %}?category=trinity_pendants" class="dropdown-item">Trinity Pendants</a>
+                <a href="{% url 'products' %}?category=triskele_pendants" class="dropdown-item">Triskele Pendants</a>
+                <a href="{% url 'products' %}?category=celtic_knot_pendants,trinity_pendants,triskele_pendants" class="dropdown-item">All Pendants</a>
             </div>
         </li>
 
@@ -41,10 +41,10 @@
                 Earrings
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="earrings-link">
-                <a href="" class="dropdown-item">Celtic Knot Earrings</a>
-                <a href="" class="dropdown-item">Trinity Earrings</a>
-                <a href="" class="dropdown-item">Triskele Earrings</a>
-                <a href="" class="dropdown-item">All Earrings</a>
+                <a href="{% url 'products' %}?category=celtic_knot_earrings" class="dropdown-item">Celtic Knot Earrings</a>
+                <a href="{% url 'products' %}?category=trinity_earrings" class="dropdown-item">Trinity Earrings</a>
+                <a href="{% url 'products' %}?category=triskele_earrings" class="dropdown-item">Triskele Earrings</a>
+                <a href="{% url 'products' %}?category=celtic_knot_earrings,trinity_earrings,triskele_earrings" class="dropdown-item">All Earrings</a>
             </div>
         </li>
     </ul>
