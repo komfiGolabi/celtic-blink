@@ -41,7 +41,7 @@
         <div class="row bg-white pt-lg-2 d-none d-lg-flex" id="topnav">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="text-black logo-font my-0"><strong>Celtic Blink</strong></h2>
+                    <h2 class="text-black logo-font my-0"><strong>Celtic Blink <i class="fas fa-gem fa-lg"></i></strong></h2>
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -83,7 +83,7 @@
                     <li class="list-inline-item">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
                             <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
                                 <p class="my-0">
                                     {% if grand_total %}
                                         ${{ grand_total|floatformat:2 }}
@@ -114,6 +114,7 @@
         </div>
     </header>
     <footer class="footer mt-auto">
+        <div class="overlay footer-overlay"></div>
         <div class="container">
           <hr>
           <p>Copyright: komfiGolabi 2021</p>
