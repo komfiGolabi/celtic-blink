@@ -91,6 +91,11 @@ body {
     background: #A6CF98 !important;
 }
 
+
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
 /*------------------------Main image----------------------
 
 .main-image {
