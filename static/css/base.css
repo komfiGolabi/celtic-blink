@@ -39,6 +39,9 @@ body {
     color:#2B2B2B;
     min-width: 260px;
 }
+.navbar{
+    background-color: #A6CF98;
+}
 
 .btn-black {
     background: black;
@@ -76,11 +79,11 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: white;
+	background: black;
 	z-index: -1;
 }
 .text-black {
-    color: #000 !important;
+    color:#000 !important;
 }
 
 .border-black {

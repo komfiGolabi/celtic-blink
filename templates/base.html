@@ -44,6 +44,7 @@
                     <h2 class="text-black logo-font my-0"><strong>Celtic Blink <i class="fas fa-gem fa-lg"></i></strong></h2>
                 </a>
             </div>
+            
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100">
@@ -105,13 +106,15 @@
                 </button>
                 {% include 'includes/mobile-header.html' %}
                 {% include 'includes/main-nav.html' %}
+                
             </nav>
         </div>
+        <!--
         <div id="delivery-banner" class="row text-center">
             <div class="col bg-black text-white">
                 <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
             </div>            
-        </div>
+        </div>-->
     </header>
     <footer class="footer mt-auto">
         <div class="overlay footer-overlay"></div>
