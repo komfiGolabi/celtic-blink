@@ -8,6 +8,7 @@ body {
     height: calc(100vh - 164px);
     color:#2B2B2B;
     font-family: 'Lora';
+   
 }
 
 #topnav{
@@ -98,6 +99,10 @@ body {
 	z-index: -1;
 }
 
+.footer-overlay{
+    background-color: #A6CF98;
+    z-index: -1;
+}
 
 .text-black {
     color:#000 !important;
@@ -123,18 +128,13 @@ a.category-badge > span.badge:hover {
     max-width:100%;
     margin-left:15%;
 }*/
-/*footer{
-   background-color:#343A40;
-   position:relative;
-   bottom:0;
-   z-index: 3; 
-}
+
 
 .my-auto {
     margin-top: auto!important;
     padding-bottom: 1rem!important;
 }
-*/
+
 
 .btt-button {
     height: 42px;
