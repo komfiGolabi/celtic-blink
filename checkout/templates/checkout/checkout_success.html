@@ -19,9 +19,9 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4 text-white">Thank You for shopping with us!</h2>
+                <h2 class="logo-font mb-4 home-intro">Thank You for shopping with us!</h2>
                 <hr>
-                <p class="text-white">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                <p class="home-intro">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
                 <div class="order-confirmation-wrapper p-2 border">
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Order Info:</small>
+                            <p class="text-black font-weight-bold">Order Info:</p>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Order Details:</small>
+                            <p class="text-black font-weight-bold">Order Details:</p>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                                 {{ item.product.name }}{% if item.product_size %} - Size {{ item.product_size|upper }}{% endif %}
                             </p>
                         </div>
-                        <div class="col-12 col-md-8 text-md-right">
+                        <div class="col-12 col-md-8 text-md-right font-weight-bold">
                             <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.price }} each</p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Delivering To:</small>
+                            <p class="text-black font-weight-bold">Delivering To:</p>
                         </div>
                     </div>
 
@@ -157,7 +157,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Billing Info:</small>
+                            <p class="text-black font-weight-bold">Billing Info:</p>
                         </div>
                     </div>
 

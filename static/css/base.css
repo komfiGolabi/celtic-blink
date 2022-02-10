@@ -223,6 +223,10 @@ a.category-badge > span.badge:hover {
     overflow-y: auto;
 }
 
+.order-confirmation-wrapper{
+    background-color: #A6CF98;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
