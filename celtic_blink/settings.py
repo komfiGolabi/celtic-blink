@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure--uzno4kmc#4t589*5k@oq=5m$&153e8v6h8s-o!dfefkfihh1-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['celtic-blink-ms3.herokuapp.com', 'loacalhost']
+ALLOWED_HOSTS = ['celtic-blink-ms3.herokuapp.com', 'localhost']
 
 
 # Application definition
