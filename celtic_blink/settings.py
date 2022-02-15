@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '.')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
-ALLOWED_HOSTS = ['celtic-blink-ms3.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['celtic-blink-ms4.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -172,17 +172,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if 'USE_AWS' in os.environ:
     # Cache control
@@ -207,7 +202,7 @@ if 'USE_AWS' in os.environ:
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-    
+
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50
