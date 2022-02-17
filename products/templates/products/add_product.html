@@ -16,7 +16,7 @@
             <div class="col-12 col-md-6">
                 <hr>
                 <h2 class="logo-font mb-4">Product Management</h2>
-                <h5 class="text-white">Add a Product</h5>
+                <h5 class="logo-font">Add Product</h5>
                 <hr>
             </div>
         </div>
@@ -33,8 +33,8 @@
                     {% endif %}
                     {% endfor %}
                     <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                        <a class="btn shop-now-button rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn shop-now-button rounded-0" type="submit">Add Product</button>
                     </div>
                 </form>
             </div>            
@@ -50,4 +50,4 @@
             $('#filename').text(`Image will be set to: ${file.name}`);
         });
     </script>
-{% endblock %
+{% endblock %}

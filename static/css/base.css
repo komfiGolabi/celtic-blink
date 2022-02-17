@@ -38,6 +38,10 @@ body {
 .shop-now-button {
     background:#A6CF98;
     color:#2B2B2B;
+   
+}
+
+.wide-btn{
     min-width: 260px;
 }
 .navbar{
