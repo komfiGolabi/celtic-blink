@@ -62,22 +62,10 @@ Footer will be pretty basic, containing the copyright only. It will have colors 
 All text content was written by me-Kamila Golebiowska. 
 
 ### Images 
-The images for the website were taken from the [Unsplash](https://unsplash.com/images)
-
-[crowd with the mobile phone](https://unsplash.com/photos/JNuKyKXLh8U)
-[crowd with a heart gesture](https://unsplash.com/photos/hzgs56Ze49s)
-Artists photos that I put into the new concert form were taken from random websites.
-[Chronixx](https://www.caribbeannationalweekly.com/caribbean-breaking-news-featured/chronixx-among-nominees-grammys-best-reggae-album/)
-[Children of Zeus](https://www.manchestersfinest.com/music/children-of-zeus-announce-uk-tour/)
-[Bjork](https://gif-ac.com/bjork-utopia-70/)
-[Arrested Development](https://dfw.cbslocal.com/2016/06/22/raps-arrested-development-still-making-music-on-their-terms/)
-[Protoje](https://www.rcarecords.com/news/protoje-unleashes-new-studio-album-in-search-of-lost-time-out-today/)
-[Glastonbury](https://meaww.com/taylor-swift-headline-glastonbury-2020-paul-mc-cartney-diana-ross-aerosmith-michael-eavis-emily-eavis)
-
+The images for the website and products were taken from my work. The credit for them goes to Celtic Design Scotland(jewellery business), where I currently work.
 
 
 ### Icons and Fonts
-
 
 Logo and Icons used free icons from [Font Awesome](https://fontawesome.com/?from=io)
 
@@ -85,28 +73,17 @@ Logo and Icons used free icons from [Font Awesome](https://fontawesome.com/?from
 
 ### Code
 
- 
+Most of the code comes from the Code Institute walkthrough Boutique Ado project. I made some chages with style, but mantained the same structure, as it worked for my project perfectly. 
  
 * [Stack Overflow](https://stackoverflow.com/)
-* [Free Code Camp](https://www.freecodecamp.org/)
-* [W3 schools](https://www.w3schools.com/html/default.asp)
-* [Random Key](https://randomkeygen.com/)
+* [Django documentation](https://docs.djangoproject.com/en/4.0/)
+* [Django secret Key generator](https://djecrety.ir/)
+* [Stripe](https://stripe.com/gb)
 
 
 
 #### Django
 
-* First Step was to create the collections in database-MongoDB
- ![Concerts Collection](static/images/concertDB.jpg)
- ![Reviews Collection](static/images/reviews.jpg)
- ![Python Installments](static/images/python-installments.jpg)
-* installed Flask and Python libraries, plus created the env.py file to store sensitive data
-* connected Github to Heroku to make the deployment automatic.
-* wired Flask to MongoDB database, installed flask-pymongo, dnspython and updating requirements,txt file for Heroku
-* in app.py file made all the imports and configurations to get info from database
-* in MongoDB cluster overview pressed the connect button and chose option to connect with the application, using drivers, where Python is the driver and the version we re working with.
-Copied the string underneath to the clipboard, pasted it to the empty space for Mongo_URI in our app.py,we need to add a name of our database there and the password to our dtabase password(not login password).
-* the same string will be copied in Heroku settings, with our config var list(check deployment section)
 
 
 
