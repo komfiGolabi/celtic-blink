@@ -22,8 +22,3 @@ class ProductForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-0'
 
 
-class ReviewForm(forms.ModelForm):
-
-    class Meta:
-        model = ProductReview
-        exclude = ('product', 'user', 'date_added')

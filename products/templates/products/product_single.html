@@ -111,17 +111,11 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             {% endwith %}
                         </div>
-                        <!--Review Form -->
-                            <form method="POST" action="{% url 'add_review' product.id %}#reviews">
-                                {% csrf_token %}
-                                {{ form|crispy }}
-                                <div class="text-right">
-                                    <button class="btn btn-info font-weight-bold" type="submit">Submit Review</button>
-                                </div>
-                            </form>
                     </form>
+
                 </div>
             </div>
+        <!--{% products.reviews.review.product.id %}-->
         </div>
     </div>
 {% endblock %}
