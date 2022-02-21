@@ -30,6 +30,10 @@ body {
 
 }
 
+.line {
+   background-color:#A6CF98;
+}
+
 .main-logo-link {
     width: fit-content;
 }
