@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Review
 from .forms import ProductForm
 
 
@@ -69,9 +69,12 @@ def product_single(request, product_id):
     """ view showing  individual product """
 
     product = get_object_or_404(Product, pk=product_id)
+    productreview = get_object_or_404(Product, pk=product_id)
+    review = Review.objects.filter(product=productreview)
 
     context = {
         'product': product,
+        'review': review,
     }
 
     return render(request, 'products/product_single.html', context)
@@ -146,3 +149,14 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
+@login_required
+def add_review(request, product_id):
+    if request.method == "GET":
+        product_id = request.GET('product_id')
+        product = Product.objects.get(product_id=product_id)
+        comment = request.GET.get('comment')
+        rate = request.GET.get('rate')
+        user = request.user
+        Review(user=user, product=product, comment=comment, rate=rate).save()
+
+        return redirect('product_single', args=[product.id])

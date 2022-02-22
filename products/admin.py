@@ -26,11 +26,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
+        'review_id',
         'product',
         'user',
         'rate',
-        'created_at'
+        'created_at',
     )
 
     readonly_fields = ('created_at', )

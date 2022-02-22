@@ -122,20 +122,23 @@
                     <div class="row">
                         <div class="col-sm-7 mt-2">
                             <div class="review-heading">
-                                <a class="text-capitalize text-white"><i class="fas fa-user mr-1"></i>admin</a>
-                                <a class="ml-2 text-white"><i class="fas fa-clock mr-1"></i>admin</a>
-                                <i class="fas fa-star" style="float: right;"></i>
+                                {% for review in reviews %}
+                                <a class="text-capitalize text-white"><i class="fas fa-user mr-1"></i>{{review.user.username}}</a>
+                                <a class="ml-2 text-white"><i class="fas fa-clock mr-1"></i>{{review.created_at}}</a>
+                                <i class="fas fa-star checked" style="float: right;"></i>
+                                <i class="fas fa-star checked" style="float: right;"></i>
                                 <i class="fas fa-star checked" style="float: right;"></i>
                                 <i class="fas fa-star checked" style="float: right;"></i>
                                 <i class="fas fa-star checked" style="float: right;"></i>
                             </div>
                             <div class="review-body mt-2">
                                 <p class="text-white">
-                                    kakkak
+                                    {{review.comment}}
                                 </p>
                             </div>
 
                         </div>
+                        {% endfor %}
                     </div>
 
                 </div>
@@ -145,7 +148,7 @@
                 <h6 class="logo-font" method="GET" actions="/review">Write a review for this product!</h6>
                 <form class="review-form">
                     {% for prod in products %}
-                    <input type="hidden" name="prod_id" id="prod_id" value="{{prod.id}}"/>
+                    <input type="hidden" name="product_id" id="product_id" value="{{product.product_id}}"/>
                     {% endfor %}
                             <div class="form-group">
                                 <textarea class="input" type="text" name="comment" placeholder="Your review"></textarea>
@@ -160,6 +163,8 @@
                                         <label for="star-4" class="fas fa-star"></label>
                                         <input type="radio" id="star-3" name="rate" value="3"/>
                                         <label for="star-3" class="fas fa-star"></label>
+                                        <input type="radio" id="star-2" name="rate" value="2"/>
+                                        <label for="star-1" class="fas fa-star"></label>
                                         <input type="radio" id="star-1" name="rate" value="1"/>
                                         <label for="star-1" class="fas fa-star"></label>
                                     </div>
@@ -169,7 +174,7 @@
                         {% if user.is_authenticated %}
                         <button class="btn shop-now-button btn-md m-0" type="submit">Post</button>
                         {% else %}
-                         <p>Login to post a Review<a href="(% url login% )">Login</a></p>
+                         <p class ="text-white">Login to post a Review<a href="(% url login% )">Login</a></p>
                         {% endif %}
                 </form>
                     

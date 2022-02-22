@@ -33,11 +33,12 @@ class Product(models.Model):
 
 
 class Review(models.Model):
+    review_id = models.CharField(max_length=254, null=True, blank=True)
     user = models.ForeignKey(User, models.CASCADE)
     product = models.ForeignKey(Product, models.CASCADE)
-    comment = models.TextField(max_length=150)
+    comment = models.TextField(max_length=250)
     rate = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.product)
+        return str(self.review_id)
