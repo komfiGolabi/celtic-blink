@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category, Review
-from .forms import ProductForm
+from .models import Product, Category
+from .forms import ProductForm, ReviewForm
 
 
 # Create your views here.
@@ -69,12 +69,9 @@ def product_single(request, product_id):
     """ view showing  individual product """
 
     product = get_object_or_404(Product, pk=product_id)
-    productreview = get_object_or_404(Product, pk=product_id)
-    review = Review.objects.filter(product=productreview)
 
     context = {
         'product': product,
-        'review': review,
     }
 
     return render(request, 'products/product_single.html', context)
@@ -95,7 +92,7 @@ def add_product(request):
             return redirect(reverse('product_single', args=[product.id]))
         else:
             messages.error(
-                request, 
+                request,
                 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
@@ -121,7 +118,6 @@ def edit_product(request, product_id):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_single', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product. Try again.')
     else:
@@ -151,12 +147,20 @@ def delete_product(request, product_id):
 
 @login_required
 def add_review(request, product_id):
-    if request.method == "GET":
-        product_id = request.GET('product_id')
-        product = Product.objects.get(product_id=product_id)
-        comment = request.GET.get('comment')
-        rate = request.GET.get('rate')
-        user = request.user
-        Review(user=user, product=product, comment=comment, rate=rate).save()
-
-        return redirect('product_single', args=[product.id])
+    """
+    A view to allow the user to add a review to a product
+    """
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                review = form.save(commit=False)
+                product = Product.objects.get(pk=product_id)
+                review.product = product
+                review.user = request.user
+                review.save()
+                messages.success(request, 'Your review was successful')
+                return redirect(reverse('product_single', args=[product.id]))
+            else:
+                messages.error(request, 'Failed to add your review')
+        return redirect(reverse('product_single, args=[product_id'))

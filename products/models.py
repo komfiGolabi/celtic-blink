@@ -33,12 +33,29 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    review_id = models.CharField(max_length=254, null=True, blank=True)
-    user = models.ForeignKey(User, models.CASCADE)
-    product = models.ForeignKey(Product, models.CASCADE)
-    comment = models.TextField(max_length=250)
-    rate = models.IntegerField(default=0)
+    """
+    Product Review Model
+    """
+    class Meta:
+        ordering = ['-created_at']
+
+    rating_selection = (
+        (5, '5'),
+        (4, '4'),
+        (3, '3'),
+        (2, '2'),
+        (1, '1'),
+    )
+
+    product = models.ForeignKey(Product, related_name='reviews',
+                                null=True, blank=True,
+                                on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, null=True, blank=True,
+                             on_delete=models.CASCADE)
+    title = models.CharField(max_length=254, null=True, blank=True)
+    comment = models.TextField()
+    rate = models.IntegerField(choices=rating_selection, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.review_id)
+        return str(self.title)
