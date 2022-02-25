@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
 
@@ -69,9 +69,14 @@ def product_single(request, product_id):
     """ view showing  individual product """
 
     product = get_object_or_404(Product, pk=product_id)
+    product_review = get_object_or_404(Product, pk=product_id)
+    review = Review.objects.filter(product=product_review)
+    form = ReviewForm()
 
     context = {
         'product': product,
+        'review': review,
+        'form': form,
     }
 
     return render(request, 'products/product_single.html', context)
@@ -79,7 +84,8 @@ def product_single(request, product_id):
 
 @login_required
 def add_product(request):
-    """ Add a product to the store """
+    """ Add a product 
+    to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -150,8 +156,10 @@ def add_review(request, product_id):
     """
     A view to allow the user to add a review to a product
     """
+    print('review view')
     if request.user.is_authenticated:
         if request.method == 'POST':
+
             form = ReviewForm(request.POST)
             if form.is_valid():
                 review = form.save(commit=False)
@@ -163,4 +171,13 @@ def add_review(request, product_id):
                 return redirect(reverse('product_single', args=[product.id]))
             else:
                 messages.error(request, 'Failed to add your review')
-        return redirect(reverse('product_single, args=[product_id'))
+        else:
+            form = ReviewForm()
+            print(form)
+
+        context = {
+            'form': form,
+            }
+        return redirect(reverse('product_single', args=[product_id]), context)
+    
+    

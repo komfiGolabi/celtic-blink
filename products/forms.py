@@ -23,8 +23,22 @@ class ProductForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
+    
+    comment = forms.CharField(widget=forms.Textarea(), required=True)
+    rate = forms.ChoiceField(widget=forms.Select(), required=True)
 
     class Meta:
         model = Review
-        exclude = ('product', 'user', 'created_at',)
+        fields = ['comment', 'rate']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        reviews = Review.objects.all()
+
+
+
+
+
+
+
 
