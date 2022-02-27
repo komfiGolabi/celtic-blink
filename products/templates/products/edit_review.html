@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay product-page-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb-4">Product Management</h2>
+                <h5 class="text-muted">Edit Your Review</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <hr class="line">
+            <form class="review-form" method="POST" action="{% url 'edit_review' review.id %}">
+                {% csrf_token %}
+                <h6 class="logo-font" >Review and rate this product!</h6>
+                {% for field in form %}
+               {{ field | as_crispy_field }}
+               {% endfor %}
+                <button class="btn shop-now-button rounded-0" type="submit">Update Your Review</button>
+            </form>
+                <p class= "text-white">Login to post a Review <a href="(% url 'account_login' %)">Login</a></p>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}

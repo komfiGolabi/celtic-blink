@@ -69,8 +69,8 @@ def product_single(request, product_id):
     """ view showing  individual product """
 
     product = get_object_or_404(Product, pk=product_id)
-    product_review = get_object_or_404(Product, pk=product_id)
-    review = Review.objects.filter(product=product_review)
+    review_id = get_object_or_404(Product, pk=product_id)
+    review = Review.objects.filter(product=review_id)
     reviews = Review.objects.all()
     form = ReviewForm()
 
@@ -183,11 +183,10 @@ def add_review(request, product_id):
     
 
 @login_required
-def edit_review(request, product_id, review_id):
+def edit_review(request, review_id):
     """ Edit a review  """
 
     review = get_object_or_404(Review, pk=review_id)
-    product = review.product
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
@@ -197,12 +196,11 @@ def edit_review(request, product_id, review_id):
         else:
             messages.error(request, 'Failed to update review. Try again.')
     else:
-        form = ReviewForm(instance=product)
+        form = ReviewForm(instance=review)
 
-    template = 'products/product_detail.html'
+    template = 'products/edit_review.html'
     context = {
         'form': form,
-        'product': product,
         'review': review,
         'edit': True,
     }
@@ -211,18 +209,20 @@ def edit_review(request, product_id, review_id):
 
 
 @login_required
-def delete_review(request, product_id, review_id):
+def delete_review(request, review_id):
     """ Delete review """
 
     review = get_object_or_404(Review, pk=review_id)
-    if review.user == request. user:
-        review.delete()
-        messages.success(request, 'Product deleted!')
+    if request.user == review.user:
+        messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('products'))
-    else:
-        messages.error(request, 'You are not permitted to do that')
+    review.delete()
+    messages.success(request, 'Review deleted!')
+    return redirect(reverse('products'))
 
-    return(redirect('product_single', args=[product_id]))
+
+
+
 
 
     

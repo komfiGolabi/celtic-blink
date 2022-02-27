@@ -128,14 +128,21 @@
                             <div class="review-heading">
                                  <a class="text-capitalize rev-text"><i class="fas fa-user mr-1 rev-text"></i>{{ review.user }}</a>
                                  <a class="ml-2 rev-text"><i class="fas fa-clock mr-1 rev-text"></i>{{ review.created_at }}</a>
-                                 
                             </div>
                               <div class="review-body mt-2">
                                   <p class="text-white text-col">
                                       {{ review.comment }}
                                   </p>
                                 </div>
-                              {% endfor %}  
+                        {% if request.user == review.user %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_review' review.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_review' review.id %}">Delete</a>
+                        </small>
+                        {% endif %}
+                        {% endfor %} 
+                        
+                        
                     </div> 
                     <div class="col-12 col-md-6">
                         <hr class="line">
