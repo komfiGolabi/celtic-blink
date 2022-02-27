@@ -37,11 +37,13 @@
                             </a>
                       </p>
                     {% endif %}
+                    {% for review in reviews %}
                     {% if review.rate %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ review.rate }} / 5</small>
+                        <small class="text-muted"><i class="fas fa-star icon-color mr-1"></i>{{ review.rate }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
+                    {% endfor %}
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
                         <a href="{% url 'edit_product' product.id %}">Edit</a> | 
@@ -121,15 +123,15 @@
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-4 mt-2">
                         <hr class="line">
-                        <h6 class="logo-font">Reviews</h6>
+                        <h6 class="logo-font rev-title">Reviews</h6>
                         {% for review in reviews %}
                             <div class="review-heading">
-                                 <a class="text-capitalize text-white"><i class="fas fa-user mr-1"></i>{{ review.user }}</a>
-                                 <a class="ml-2 text-white"><i class="fas fa-clock mr-1"></i>{{ review.created_at }}</a>
+                                 <a class="text-capitalize rev-text"><i class="fas fa-user mr-1 rev-text"></i>{{ review.user }}</a>
+                                 <a class="ml-2 rev-text"><i class="fas fa-clock mr-1 rev-text"></i>{{ review.created_at }}</a>
                                  
                             </div>
                               <div class="review-body mt-2">
-                                  <p class="text-white">
+                                  <p class="text-white text-col">
                                       {{ review.comment }}
                                   </p>
                                 </div>

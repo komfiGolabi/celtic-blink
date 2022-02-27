@@ -71,12 +71,14 @@ def product_single(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product_review = get_object_or_404(Product, pk=product_id)
     review = Review.objects.filter(product=product_review)
+    reviews = Review.objects.all()
     form = ReviewForm()
 
     context = {
         'product': product,
         'review': review,
         'form': form,
+        'reviews': review,
     }
 
     return render(request, 'products/product_single.html', context)
@@ -179,4 +181,48 @@ def add_review(request, product_id):
             }
         return redirect(reverse('product_single', args=[product_id]), context)
     
+
+@login_required
+def edit_review(request, product_id, review_id):
+    """ Edit a review  """
+
+    review = get_object_or_404(Review, pk=review_id)
+    product = review.product
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated review!')
+        else:
+            messages.error(request, 'Failed to update review. Try again.')
+    else:
+        form = ReviewForm(instance=product)
+
+    template = 'products/product_detail.html'
+    context = {
+        'form': form,
+        'product': product,
+        'review': review,
+        'edit': True,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_review(request, product_id, review_id):
+    """ Delete review """
+
+    review = get_object_or_404(Review, pk=review_id)
+    if review.user == request. user:
+        review.delete()
+        messages.success(request, 'Product deleted!')
+        return redirect(reverse('products'))
+    else:
+        messages.error(request, 'You are not permitted to do that')
+
+    return(redirect('product_single', args=[product_id]))
+
+
     
