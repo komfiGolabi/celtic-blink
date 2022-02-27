@@ -333,6 +333,11 @@ a.category-badge > span.badge:hover {
     border-color: #dc3545;
     border-radius: 0;
 }
+/* review form */
+
+.requiredField{
+    display: none;
+}
 
 
 

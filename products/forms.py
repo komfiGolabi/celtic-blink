@@ -23,10 +23,9 @@ class ProductForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
-    
-    comment = forms.CharField(widget=forms.Textarea(), required=True)
-    rate = forms.ChoiceField(widget=forms.Select(), required=True)
-
+    """
+    Form for the Reviews
+    """
     class Meta:
         model = Review
         fields = ['comment', 'rate']
@@ -34,6 +33,9 @@ class ReviewForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         reviews = Review.objects.all()
+       
+
+
 
 
 
