@@ -36,13 +36,23 @@ Footer will be pretty basic, containing the copyright only. It will have colors 
  
 
 ### Features to add in future
-
-
+ * sales and reduction 
+ * wishlist
 
 
  ## User Goals
 
  ### First Time User:
+ * to check and see the selection of products
+ * to sort through products
+ * to view the individual products
+ * easily buy items and see them in my cart, includin the price
+ * to register easily for an account
+ * to login and logout
+ * have a personal profile
+ * to review the particular products
+ * to make a payments easily
+ 
 
 
  
