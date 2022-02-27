@@ -52,7 +52,7 @@ Footer will be pretty basic, containing the copyright only. It will have colors 
  * have a personal profile
  * to review the particular products
  * to make a payments easily
- 
+
 
 
  
@@ -99,6 +99,8 @@ Most of the code comes from the Code Institute walkthrough Boutique Ado project.
 
 ## Handling Bugs and what is remaining
 ### My struggles
+
+* my major issues I encountered with the databases, during deployment, had a problem with connecting sqlite with Postgres and images where showing on.
 
 
 ### Existing Bugs
