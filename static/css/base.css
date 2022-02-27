@@ -15,6 +15,10 @@ body {
     background-color: #A6CF98 !important;
 }
 
+.text-white {
+    color:#E5E3C9!important;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -24,15 +28,20 @@ body {
     width: 1.5rem;
 }
 
-.logo-font {
+.logo-font
+ {
     text-transform: uppercase;
     color: #A6CF98;
+}
 
+.icon-color{
+    color: #A6CF98 !important; 
 }
 
 .line {
    background-color:#A6CF98;
 }
+
 
 .main-logo-link {
     width: fit-content;
@@ -133,13 +142,8 @@ a.category-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
-/*-----------------------Main image----------------------
+/*-----------------------Main image----------------------*/
 
-.main-image {
-    height:auto;
-    max-width:100%;
-    margin-left:15%;
-}*/
 
 
 .my-auto {
@@ -165,6 +169,16 @@ a.category-badge > span.badge:hover {
 .product-butt{
     color:#A6CF98;
 }
+
+
+/* ------------------------------- Review section */
+
+.rev-text {
+    color:#A6CF98 !important;
+}
+
+
+
 
 
 /* ------------------------------- bootstrap toasts */
