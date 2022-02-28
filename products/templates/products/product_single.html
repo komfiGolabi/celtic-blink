@@ -29,6 +29,21 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0 text-white">{{ product.name }}</p>
+                    <div class="col-1 col-sm-2 col-lg-4 pl-0 mt-5">
+                        <p class="text-right">
+                            {% if wishlist %}
+                                <span class="d-none d-lg-inline-block red">Remove from Wishlist: </span>
+                                <a href="{% url 'remove_from_wishlist' product.id %}">
+                                    <i class="hover-heart-green fas fa-heart fa-lg ml-1 mt-3 red"></i>
+                                </a>
+                            {% else %}
+                                <span class="d-none d-lg-inline-block green">Add to Wishlist: </span>
+                                <a class="wishlist_btn hvr-grow" href="{% if user.is_authenticated %}{% url 'add_to_wishlist' product.id %}{% else %}{% url 'account_login' %}{% endif %}">
+                                    <i class="hover-heart-red far fa-heart fa-lg ml-1 mt-3 green"></i>
+                                </a>
+                            {% endif %}
+                        </p>
+                    </div>
                     <p class="lead mb-0 text-left font-weight-bold text-white">£{{ product.price }}</p>
                     {% if product.category %}
                         <p class="small mt-1 mb-0">
@@ -128,21 +143,23 @@
                             <div class="review-heading">
                                  <a class="text-capitalize rev-text"><i class="fas fa-user mr-1 rev-text"></i>{{ review.user }}</a>
                                  <a class="ml-2 rev-text"><i class="fas fa-clock mr-1 rev-text"></i>{{ review.created_at }}</a>
+                                 <p class="text-white" >Rate: <small><i class="fas fa-star icon-color mr-1"></i>{{ review.rate }} / 5</small></p>
                             </div>
                               <div class="review-body mt-2">
                                   <p class="text-white text-col">
                                       {{ review.comment }}
                                   </p>
                                 </div>
+                                <hr class="green-muted mx-3 mb-2">
+                            </div>
+                        {% endfor %}
+                    </div>
                         {% if request.user == review.user %}
                         <small class="ml-3">
                             <a href="{% url 'edit_review' review.id %}">Edit</a> | 
                             <a class="text-danger" href="{% url 'delete_review' review.id %}">Delete</a>
                         </small>
                         {% endif %}
-                        {% endfor %} 
-                        
-                        
                     </div> 
                     <div class="col-12 col-md-6">
                         <hr class="line">
@@ -164,5 +181,11 @@
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
+
 {% include 'products/includes/quantity_input_script.html' %}
+<script>
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0);
+    });
+</script>
 {% endblock %}

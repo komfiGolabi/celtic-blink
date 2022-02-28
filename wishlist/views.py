@@ -12,8 +12,8 @@ def wishlist(request):
     """
     A view to render the user's wishlist
     """
-    user = get_object_or_404(UserProfile, user=request.user)
     wishlist = Wishlist.objects.filter(user_profile=user)
+    user = get_object_or_404(UserProfile, user=request.user)
 
     template = 'wishlist/wishlist.html'
     context = {
@@ -30,12 +30,9 @@ def add_to_wishlist(request, product_id):
     """
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
-    wishlist = Wishlist.objects.filter(user_profile=user)
+    wishlist = WishList.objects.filter(user_profile=user)
 
-    WishList.objects.create(
-        user_profile=user,
-        product=product
-    )
+    WishList.objects.create(user_profile=user, product=product)
     messages.info(
         request, f'{product.name} has been added to your Wishlist!')
 

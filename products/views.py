@@ -71,7 +71,6 @@ def product_single(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     review_id = get_object_or_404(Product, pk=product_id)
     review = Review.objects.filter(product=review_id)
-    reviews = Review.objects.all()
     form = ReviewForm()
 
     context = {
@@ -219,10 +218,3 @@ def delete_review(request, review_id):
     review.delete()
     messages.success(request, 'Review deleted!')
     return redirect(reverse('products'))
-
-
-
-
-
-
-    
