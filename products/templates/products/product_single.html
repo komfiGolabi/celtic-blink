@@ -28,23 +28,32 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0 text-white">{{ product.name }}</p>
-                    <div class="col-1 col-sm-2 col-lg-4 pl-0 mt-5">
-                        <p class="text-right">
-                            {% if wishlist %}
-                                <span class="d-none d-lg-inline-block red">Remove from Wishlist: </span>
-                                <a href="{% url 'remove_from_wishlist' product.id %}">
-                                    <i class="hover-heart-green fas fa-heart fa-lg ml-1 mt-3 red"></i>
-                                </a>
-                            {% else %}
-                                <span class="d-none d-lg-inline-block green">Add to Wishlist: </span>
-                                <a class="wishlist_btn hvr-grow" href="{% if user.is_authenticated %}{% url 'add_to_wishlist' product.id %}{% else %}{% url 'account_login' %}{% endif %}">
-                                    <i class="hover-heart-red far fa-heart fa-lg ml-1 mt-3 green"></i>
-                                </a>
-                            {% endif %}
-                        </p>
+                    <div class="d-flex justify-content-between">
+                        <h5 class="mb-0 text-white">{{ product.name }}</h5>
+                        {% if request.user.is_authenticated %}
+
+                        {% if fav %}
+                        <div>
+                          <a href="{% url 'profile.favourite_list' %}" class="">Remove
+                            Favourites</a>
+                        </div>
+                        {% else %}
+                        <div>
+                          <a href="{% url 'profile.favourite_add' product.id %}" class="">Add to
+                            Favourites</a>
+                        </div>
+                        {% endif %}
+                  
+                        {% else %}
+                        <div>
+                          <a href="{% url 'profile.register' %}" class="">Add to
+                            Favourites</a>
+                        </div>
+                        {% endif %}
+                      </div>
                     </div>
-                    <p class="lead mb-0 text-left font-weight-bold text-white">£{{ product.price }}</p>
+                        <p class="lead mb-0 text-left font-weight-bold text-white">£{{ product.price }}</p>
+      
                     {% if product.category %}
                         <p class="small mt-1 mb-0">
                             <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -59,7 +68,7 @@
                         <small class="text-muted">No Rating</small>
                     {% endif %}
                     {% endfor %}
-                    {% if request.user.is_superuser %}
+                    {% if request.user is_authenticated"> %}
                     <small class="ml-3">
                         <a href="{% url 'edit_product' product.id %}">Edit</a> | 
                         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
@@ -130,7 +139,6 @@
                         </div>
                     </form>
                 </div>
-          
         </div>
           <!--Review section-->
 
@@ -149,19 +157,18 @@
                                   <p class="text-white text-col">
                                       {{ review.comment }}
                                   </p>
-                                </div>
-                                <hr class="green-muted mx-3 mb-2">
                             </div>
-                        {% endfor %}
+                            {% endfor %}
+                                <hr class="green-muted mx-3 mb-2">
+                           
                     </div>
-                        {% if request.user == review.user %}
+                    {% if request.user == review.user %}
                         <small class="ml-3">
                             <a href="{% url 'edit_review' review.id %}">Edit</a> | 
                             <a class="text-danger" href="{% url 'delete_review' review.id %}">Delete</a>
                         </small>
-                        {% endif %}
-                    </div> 
-                    <div class="col-12 col-md-6">
+                    {% endif %}
+                    <div class="col-12 col-md-6 col-lg-4 mt-2">
                         <hr class="line">
                         <form class="review-form" method="POST" action="{% url 'add_review' product.id %}">
                             {% csrf_token %}
@@ -174,8 +181,8 @@
                             <p class= "text-white">Login to post a Review <a href="(% url 'account_login' %)">Login</a></p>
                     </div>
                 </div>
-              </div>
-          </div>
+            </div>
+        </div>
         </div>
     </div>
 {% endblock %}

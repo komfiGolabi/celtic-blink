@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from django.db.models import Avg
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
@@ -60,7 +59,6 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
-        'reviews': review,
     }
 
     return render(request, 'products/products.html', context)
@@ -73,12 +71,17 @@ def product_single(request, product_id):
     review_id = get_object_or_404(Product, pk=product_id)
     review = Review.objects.filter(product=review_id)
     form = ReviewForm()
+    fav = bool()
+
+    if product.favourite.filter(id=request.user.id).exists():
+        fav = True   
 
     context = {
         'product': product,
         'review': review,
         'form': form,
         'reviews': review,
+        'fav': fav,
     }
 
     return render(request, 'products/product_single.html', context)
