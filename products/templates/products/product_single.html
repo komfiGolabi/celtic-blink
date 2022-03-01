@@ -34,12 +34,12 @@
 
                         {% if fav %}
                         <div>
-                          <a href="{% url 'profile.favourite_list' %}" class="">Remove
+                          <a href="{% url 'profile/favourite' %}" class="">Remove
                             Favourites</a>
                         </div>
                         {% else %}
                         <div>
-                          <a href="{% url 'profile.favourite_add' product.id %}" class="">Add to
+                          <a href="{% url 'favourites' product.id %}" class="">Add to
                             Favourites</a>
                         </div>
                         {% endif %}
