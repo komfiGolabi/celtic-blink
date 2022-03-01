@@ -12,4 +12,4 @@ class WishList(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
-        return f'WishList ({self.user_profile})'
+        return f'Wishlist ({self.user_profile})'

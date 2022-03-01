@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-
+from django.db.models import Avg
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
@@ -60,6 +60,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'reviews': review,
     }
 
     return render(request, 'products/products.html', context)

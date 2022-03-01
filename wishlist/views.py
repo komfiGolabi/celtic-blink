@@ -12,8 +12,8 @@ def wishlist(request):
     """
     A view to render the user's wishlist
     """
-    wishlist = Wishlist.objects.filter(user_profile=user)
     user = get_object_or_404(UserProfile, user=request.user)
+    wishlist = WishList.objects.filter(user_profile=user)
 
     template = 'wishlist/wishlist.html'
     context = {
@@ -30,9 +30,11 @@ def add_to_wishlist(request, product_id):
     """
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
-    wishlist = WishList.objects.filter(user_profile=user)
 
-    WishList.objects.create(user_profile=user, product=product)
+    WishList.objects.create(
+        user_profile=user,
+        product=product
+    )
     messages.info(
         request, f'{product.name} has been added to your Wishlist!')
 
@@ -45,9 +47,7 @@ def remove_from_wishlist(request, product_id):
     View to remove products from wishlist
     """
     user = get_object_or_404(UserProfile, user=request.user)
-    # get the product to be removed from WishList
     product = get_object_or_404(Product, pk=product_id)
-    # find a match to the product and user, then .delete() it
     WishList.objects.filter(product=product, user_profile=user).delete()
 
     messages.info(request,
