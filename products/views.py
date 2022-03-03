@@ -86,6 +86,10 @@ def product_single(request, product_id):
 
     return render(request, 'products/product_single.html', context)
 
+    def calculate_rating(self):
+        self.rating = self.reviews.aggregate(Avg("review_rating"))
+        self.save()
+
 
 @login_required
 def add_product(request):
@@ -183,7 +187,7 @@ def add_review(request, product_id):
             'form': form,
             }
         return redirect(reverse('product_single', args=[product_id]), context)
-    
+
 
 @login_required
 def edit_review(request, review_id):
