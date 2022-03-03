@@ -214,7 +214,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'komfalos1@gmail.com'
+    DEFAULT_FROM_EMAIL = 'celticblink@example.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
