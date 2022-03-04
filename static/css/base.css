@@ -125,7 +125,7 @@ body {
 
 .footer-overlay{
     background-color: #A6CF98;
-    z-index: -1;
+    z-index: 1;
 }
 
 .text-black {

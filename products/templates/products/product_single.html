@@ -31,22 +31,21 @@
                     <div class="d-flex justify-content-between">
                         <h5 class="mb-0 text-white">{{ product.name }}</h5>
                         {% if request.user.is_authenticated %}
-
                         {% if fav %}
                         <div>
-                          <a href="{% url 'profile/favourite' %}" class="">Remove
+                          <a href="{% url 'profiles/favourite' %}" class="">Remove
                             Favourites</a>
                         </div>
                         {% else %}
                         <div>
-                          <a href="{% url 'favourites' product.id %}" class="">Add to
+                          <a href="{% url 'favourite' product.id %}" class="">Add to
                             Favourites</a>
                         </div>
                         {% endif %}
                   
                         {% else %}
                         <div>
-                          <a href="{% url 'profile.register' %}" class="">Add to
+                          <a href="{% url 'account_login' %}" class="">Add to
                             Favourites</a>
                         </div>
                         {% endif %}
