@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
-from .forms import UserProfileForm
 from products.models import Product
 from checkout.models import Order
+from .models import UserProfile
+from .forms import UserProfileForm
 
 
 @login_required
@@ -57,7 +57,7 @@ def favourite_list(request):
     context = {
         'new': new,
     }
-    return render(request, 'profiles/favourite.html', context)
+    return render(request, 'profiles/profile.html', context)
 
 
 @ login_required
@@ -67,5 +67,6 @@ def favourite_add(request, product_id):
         product.favourites.remove(request.user)
     else:
         product.favourites.add(request.user)
-        messages.success(request, 'Successfully added product to your favourites!')
+        messages.success(request, 'Successfully \
+            added product to your favourites!')
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

@@ -218,8 +218,8 @@ def delete_review(request, review_id):
     """ Delete review """
 
     review = get_object_or_404(Review, pk=review_id)
-    if request.user == review.user:
-        messages.error(request, 'Sorry, only store owners can do that.')
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owner can do that.')
         return redirect(reverse('products'))
     review.delete()
     messages.success(request, 'Review deleted!')

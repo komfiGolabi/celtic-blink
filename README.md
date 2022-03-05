@@ -137,7 +137,7 @@ It passed the validation, all pages had the same warning, which refers to the se
 
 [CSS Validator Page](https://jigsaw.w3.org/css-validator/)
 * Code from style.css was copied as a direct input into the CSS validator page and no errors were found.
-![image of passed css validator page]()
+![image of passed css validator page](/readme-images/css-validator.jpg)
 
 * ![Jshint validation]()
 
