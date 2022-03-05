@@ -33,13 +33,13 @@
                         {% if request.user.is_authenticated %}
                         {% if fav %}
                         <div>
-                            <a href="{% url 'favourite_add' product.id %}" class="">Remove
-                              Favourties</a>
+                            <a href="{% url 'favourite_add' product.id %}" class="link-fav">Remove
+                              Favourites</a>
                           </div>
                         {% else %}
                         <div>
                             <a href="{% url 'favourite_add' product.id %}" class=""><i class="fas fa-heart icon-color"></i></a>
-                            
+                            </button>
                           </div>
                     {% endif %}
                   {% else %}
@@ -140,7 +140,7 @@
 
             <div class ="review-box container-fluid">
                 <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4 mt-2">
+                    <div class="col-12 col-md-6 col-lg-6 mt-2">
                         <hr class="line">
                         <h6 class="logo-font rev-title">Reviews</h6>
                         {% for review in reviews %}
@@ -149,21 +149,24 @@
                                  <a class="ml-2 rev-text"><i class="fas fa-clock mr-1 rev-text"></i>{{ review.created_at }}</a>
                                  <p class="text-white" >Rate: <small><i class="fas fa-star icon-color mr-1"></i>{{ review.rate }} / 5</small></p>
                             </div>
-                              <div class="review-body mt-2">
+                            <div class="review-body mt-2">
                                   <p class="text-white text-col">
                                       {{ review.comment }}
                                   </p>
+                                <div class="review-edits">
+                                {% if request.user == review.user %}
+                                  <small class="ml-3">
+                                      <a  class="" href="{% url 'edit_review' review.id %}">Edit</a> | 
+                                      <a class="text-danger" href="{% url 'delete_review' review.id %}">Delete</a>
+                                  </small>
+                              {% endif %}
+                            </div>
                             </div>
                             {% endfor %}
-                                <hr class="green-muted mx-3 mb-2">
-                           
-                    </div>
-                    {% if request.user == review.user %}
-                        <small class="ml-3">
-                            <a href="{% url 'edit_review' review.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_review' review.id %}">Delete</a>
-                        </small>
-                    {% endif %}
+                            <hr class="line mx-3 mb-2">
+                        
+                </div>
+                   
                     <div class="col-12 col-md-6 col-lg-4 mt-2">
                         <hr class="line">
                         <form class="review-form" method="POST" action="{% url 'add_review' product.id %}">

@@ -33,15 +33,15 @@
                 </form>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Order History</p>
+                <p class="text-white">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
-                        <thead>
+                        <thead class="text-white">
                             <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
+                                <th class="text-white">Order Number</th>
+                                <th class="text-white">Date</th>
+                                <th class="text-white">Items</th>
+                                <th class="text-white">Order Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,10 +74,7 @@
             </div>
             </div>
     </div>
-    <div id="favourite-section">
-        <a href="{% url 'favourite_list' user.id %}"
-        class="btn shop-now-button">Remove</a>
-    </div>
+    
 {% endblock %}
 
 {% block postloadjs %}

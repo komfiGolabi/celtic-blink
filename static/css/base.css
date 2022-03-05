@@ -41,6 +41,9 @@ body {
     color: #A6CF98 !important; 
 }
 
+.fa-heart{
+    font-size: x-large;
+}
 .line {
    background-color:#A6CF98;
 }
@@ -199,6 +202,10 @@ a.category-badge > span.badge:hover {
 
 .toast-capper {
     height: 2px;
+}
+
+.review-edits {
+    padding-bottom:15px;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */

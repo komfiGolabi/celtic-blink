@@ -84,7 +84,7 @@
                                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Favourite List</a>
+                                <a href="{% url 'favourite_list' user.id %}" class="dropdown-item">Favourite List</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -120,36 +120,7 @@
                 
             </nav>
        </div>
-    <!--<div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-            <form method="GET" action="{% url 'products' %}">
-                <div class="input-group w-100">
-                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                    <div class="input-group-append">
-                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                            <span class="icon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>-->
-        <!--
-        <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
-            </div>            
-        </div>-->
     </header>
-    
-    <!--Code taken from Bootstrap examples-sticky footer-->
-    
-    <footer class="footer-overlay mt-auto container-fluid fixed-bottom"></div>
-        <div class="container">
-            <hr class="mt-0">
-          <p>Copyright: komfiGolabi 2021</p>
-        </div>
-    </footer>
         
     {% if messages %}
     <div class="message-container">
