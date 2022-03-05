@@ -33,17 +33,16 @@
                         {% if request.user.is_authenticated %}
                         {% if fav %}
                         <div>
-                          <a href="{% url 'profiles/favourite' %}" class="">Remove
-                            Favourites</a>
-                        </div>
+                            <a href="{% url 'favourite_add' product.id %}" class="">Remove
+                              Favourties</a>
+                          </div>
                         {% else %}
                         <div>
-                          <a href="{% url 'favourite' product.id %}" class="">Add to
-                            Favourites</a>
-                        </div>
-                        {% endif %}
-                  
-                        {% else %}
+                            <a href="{% url 'favourite_add' product.id %}" class=""><i class="fas fa-heart icon-color"></i></a>
+                            
+                          </div>
+                    {% endif %}
+                  {% else %}
                         <div>
                           <a href="{% url 'account_login' %}" class="">Add to
                             Favourites</a>
@@ -60,13 +59,11 @@
                             </a>
                       </p>
                     {% endif %}
-                    {% for review in reviews %}
-                    {% if review.rate %}
-                        <small class="text-muted"><i class="fas fa-star icon-color mr-1"></i>{{ review.rate }} / 5</small>
-                    {% else %}
-                        <small class="text-muted">No Rating</small>
-                    {% endif %}
-                    {% endfor %}
+        
+                
+                        <small class="text-muted"><i class="fas fa-star icon-color mr-1"></i>{{ avg_rate }} / 5</small>
+                
+        
                     {% if request.user.is_authenticated%}
                     <small class="ml-3">
                         <a href="{% url 'edit_product' product.id %}">Edit</a> | 

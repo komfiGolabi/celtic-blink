@@ -70,25 +70,23 @@ def product_single(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     review_id = get_object_or_404(Product, pk=product_id)
     review = Review.objects.filter(product=review_id)
+    avg_rate = Review.objects.filter(product=product_id).aggregate(Avg('rate'))
     form = ReviewForm()
     fav = bool()
+    print('avg_rate', avg_rate)
 
-    if product.favourite.filter(id=request.user.id).exists():
+    if product.favourites.filter(id=request.user.id).exists():
         fav = True   
 
     context = {
         'product': product,
-        'review': review,
         'form': form,
         'reviews': review,
         'fav': fav,
+        'avg_rate': avg_rate['rate__avg']
     }
 
     return render(request, 'products/product_single.html', context)
-
-    def calculate_rating(self):
-        self.rating = self.reviews.aggregate(Avg("review_rating"))
-        self.save()
 
 
 @login_required
@@ -226,3 +224,5 @@ def delete_review(request, review_id):
     review.delete()
     messages.success(request, 'Review deleted!')
     return redirect(reverse('products'))
+
+

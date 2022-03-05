@@ -52,19 +52,20 @@ def order_history(request, order_number):
 
 
 @login_required
-def favourite_add(request, id):
-    product = get_object_or_404(Product, id=id)
-    if product.favourite.filter(id=request.user.id).exists():
-        product.favourite.remove(request.user)
-    else:
-        product.favourite.add(request.user)
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
-
-
-@login_required
 def favourite_list(request):
-    new = Product.newmanager.filter(favourite=request.user)
+    new = Product.filter(favourites=request.user)
     context = {
         'new': new,
     }
     return render(request, 'profiles/favourite.html', context)
+
+
+@ login_required
+def favourite_add(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if product.favourites.filter(id=request.user.id).exists():
+        product.favourites.remove(request.user)
+    else:
+        product.favourites.add(request.user)
+        messages.success(request, 'Successfully added product to your favourites!')
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])

@@ -30,14 +30,16 @@ class Product(models.Model):
     rate = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    favourite = models.ManyToManyField(User, related_name='favourite', default=None, blank=True)
+    favourites = models.ManyToManyField(User, related_name='favourites', default=None, blank=True)
 
     def __str__(self):
         return str(self.name)
 
-    def calculate_rate(self):
-        self.rate = self.reviews.aggregate(Avg("review_rate"))
-        self.save()
+    def get_avg_user_rate(self):
+        avg =  Review.objects.filter(product__id=self.id).aggregate(Avg('rate'))['avg_rate']
+        print(avg, "avg")
+        return avg
+      
 
 
 class Review(models.Model):
@@ -65,6 +67,3 @@ class Review(models.Model):
     def __str__(self):
         return str(self.title)
 
-    def save(self, *args, **kwargs):
-        self.product.calculate_rate()
-        super().save(*args, **kwargs)
