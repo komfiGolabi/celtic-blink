@@ -3,10 +3,10 @@
 ## Languages used: HMTL, CSS, Javascript, Python, Bootstrap, Django, AWS
 
 
-[CoCo Live Page](https://celtic-blink-ms4.herokuapp.com/)
+[Celtic Blink Live Page](https://celtic-blink-ms4.herokuapp.com/)
 
 
-![project on different devices]()
+![project on different devices](readme-images/responsive.jpg)
 
 
 ## Project description and goals:
@@ -46,7 +46,8 @@ For displaying products I used black color, so the jewellery looks more elegant.
 
 ### Features to add in future
  * sales and reduction 
- * 
+ * delivery options
+ * contact form, so customers can easily communicate with us.
 
 
  ## User Goals
@@ -67,14 +68,13 @@ For displaying products I used black color, so the jewellery looks more elegant.
 * to have my orders stored
 * to have faster checkout options
 * to check and see the selection of products
- * to sort through products
- * to view the individual products
+* to sort through products
+* to view the individual products
+
  
 
 ## Wireframes
  [Wireframes]()
-
-
 
 
 ## Credits
@@ -91,7 +91,7 @@ The images for the website and products were taken from my work. The credit for 
 
 Logo and Icons used free icons from [Font Awesome](https://fontawesome.com/?from=io)
 Font was taken from Google Fonts
-
+Favicon was taken from [Favicon](https://www.websiteplanet.com/webtools/favicon-generator/)
 
 ### Code
 
@@ -111,16 +111,14 @@ The seperate models that were to be made independently were taken from , isnpire
 ## Handling Bugs and what is remaining
 ### My struggles
 
-* Aws and static files not appearing
-* heroku deployment
-* my major issues I encountered with the databases, during deployment, had a problem with connecting sqlite with Postgres and images where showing on.
-* No reverse match,giving 500 error in my favourites model
+* Aws and static files not appearing, 
+* my major issues I encountered with the databases, during deployment, had a problem with connecting sqlite with Postgres and images where showing on, due to not using  heroku command line while migrating
+* reviews not showing- struggled with the correct urls
+* favourite template not rendered, eventually it was problem in my urls, I was missing one part of connection with it
 
-* reviews not showing 
+### Existing Bug
 
-
-### Existing Bugs
-
+* when pressing the arrow up, the arrows disappear-need to be corrected
 * 
 
 ## Testing
@@ -151,14 +149,25 @@ Lighthouse testing was fluctuating slightly due to the course of the project and
 
 * Website was tested on various browsers: Chrome, Microsoft Edge and Mozzila Firefox and on all of those performed well.
  
+### First Time User:
+ * I can see various selection of products
+ * I can browse through categories 
+ * I see the individual products and description
+ * I caneasily buy items and see them in my cart
+ * I  register easily for an account
+ * I have a personal profile with stored favourite items
+ * I can review products
+ * I canmake a payments easily
 
- ### First Time User:
-
-
- ### Returning User
+### Returning User
+* I canlogin to my profile
+* I have my orders stored
+* I have faster checkout options with my details stored
+* I can check and see the selection of products
+* I can sort through products
+* I can view the individual products
+*  I have my saved items in my profile
  
-
-
 ## Deployment
 
 1. Created repository with the title of the page "" in GitHub.

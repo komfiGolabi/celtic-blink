@@ -63,3 +63,8 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+.shop-now-button {
+  background:#A6CF98;
+  color:#2B2B2B;
+}
