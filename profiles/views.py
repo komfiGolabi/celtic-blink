@@ -53,11 +53,12 @@ def order_history(request, order_number):
 
 @login_required
 def favourite_list(request):
-    new = Product.filter(favourites=request.user)
+    new = Product.objects.filter(favourites=request.user)
     context = {
         'new': new,
     }
-    return render(request, 'profiles/profile.html', context)
+    
+    return render(request, 'profiles/favourite.html', context)
 
 
 @ login_required

@@ -85,11 +85,10 @@
 </div>
 
 <div id="favourite-section">
-    <a href="{% url 'favourites' user.id %}"></a>
+    <a href="{% url 'favourite' %}"></a>
     
 </div>
-{% endblock
-{% endfor %}
+
 {% endblock %}
 {% block postloadjs %}
     {{ block.super }}
