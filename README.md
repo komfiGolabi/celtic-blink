@@ -74,7 +74,7 @@ For displaying products I used black color, so the jewellery looks more elegant.
  
 
 ## Wireframes
- [Wireframes]()
+ [Wireframes](https://drive.google.com/file/d/1Zp4Ugv5y7n7yqxUU71eGvz-5pVit7xpv/view?usp=sharing)
 
 
 ## Credits
@@ -123,12 +123,10 @@ The seperate models that were to be made independently were taken from , isnpire
 
 ## Testing
 
-[Check responsiveness]()
-
-[HTML Validator Page)
+[HTML Validator Page](https://validator.w3.org/)
 
 Html validation was throwing errors when used the code from the working environment, so the validation was made by opening the website and using the view source option, when right clicking on the mouse and then validated.
-It passed the validation, all pages had the same warning, which refers to the section with flash messages. The rest of the errors has been fixed.
+It passed the validation, all pages had the same warning. The rest of the errors has been fixed.
 
 ![image of passed html validator page]()
 
