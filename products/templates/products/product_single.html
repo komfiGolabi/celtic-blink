@@ -33,13 +33,12 @@
                         {% if request.user.is_authenticated %}
                         {% if fav %}
                         <div>
-                            <a href="{% url 'favourite_add' product.id %}" class="link-fav">Remove
-                              Favourites</a>
+                            <a href="{% url 'favourite_add' product.id %}" class="link-fav">Remove</a>
                           </div>
                         {% else %}
                         <div>
-                            <a href="{% url 'favourite_add' product.id %}" class=""><i class="fas fa-heart icon-color"></i></a>
-                          </div>
+                            <a href="{% url 'favourite_add' product.id %}" class="link-fav"><i class="fas fa-heart icon-color"></i></a>
+                        </div>
                     {% endif %}
                   {% else %}
                         <div>
@@ -176,7 +175,7 @@
                            {% endfor %}
                             <button class="btn shop-now-button rounded-0" type="submit">Post Review</button>
                         </form>
-                            <p class= "text-white">Login to post a Review <a href="(% url 'account_login' %)">Login</a></p>
+                            <p class= "text-white rev-txt">Login to post a Review <a href="(% url 'account_login' %)">Login</a></p>
                     </div>
                 </div>
             </div>

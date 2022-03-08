@@ -96,7 +96,7 @@ The images for the website and products were taken from my work. The credit for 
 
 Logo and Icons used free icons from [Font Awesome](https://fontawesome.com/?from=io)
 Font was taken from Google Fonts
-Favicon was taken from [Favicon](https://www.websiteplanet.com/webtools/favicon-generator/)
+
 
 ### Code
 
@@ -124,7 +124,7 @@ The seperate models that were to be made independently were taken from , isnpire
 
 ### Existing Bugs
 * favourite page and review section still needs a little message for the users , when there is nothing on the list and no reviews
-* when pressing the arrow up, the arrows disappear-need to be corrected
+* arrow that takes us to be up the page is not visible
 * color of the font on the buttons in the allauth forms 
 
 ## Testing

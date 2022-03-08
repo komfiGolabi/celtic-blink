@@ -183,10 +183,7 @@ a.category-badge > span.badge:hover {
 }
 
 
-
-
-
-/* ------------------------------- bootstrap toasts */
+/* bootstrap toasts */
 
 .message-container {
     position: fixed;
@@ -205,6 +202,11 @@ a.category-badge > span.badge:hover {
 
 .review-edits {
     padding-bottom:15px;
+}
+
+.rev-txt{
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
@@ -413,9 +415,6 @@ a.category-badge > span.badge:hover {
         font-size: 1rem;
     }
 
-    #delivery-banner h4 {
-        font-size: .9rem;
-    }
 
     .btn.btn-outline-black.rounded-0,
     .btn.btn-black.rounded-0 {
@@ -432,5 +431,17 @@ a.category-badge > span.badge:hover {
         padding: .25rem .5rem !important;
     }
 }
+
+@media (max-width: 767px){
+    .home-intro{
+        font-size: x-large;
+    }
+
+    .wide-btn {
+        min-width: 120px;
+    }
+}
+    
+
 
 
