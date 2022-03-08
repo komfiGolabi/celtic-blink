@@ -46,6 +46,11 @@ Review section for the individual product
 
 ![Register/Login](/readme-images/form.jpg)
 
+### Checkout page
+
+![Checkout Product Page](/readme-images/checkout-product.jpg)
+![Checkout Succesful](/readme-images/checkout-success.jpg)
+
  
 
 ### Features to add in future
@@ -211,6 +216,11 @@ Lighthouse testing was fluctuating slightly due to the course of the project and
 4. Create a custom storage python file with the locations of the static and media file
 5. in the S3 AWS create media file and upload the images manually
 
+
+### Stripe-used for payment method
+
+Stripe was used to handle payments and the confirmation emails.
+![Stripe dashboard](/readme-images/stripe.jpg)
 
 ## Deployment
 

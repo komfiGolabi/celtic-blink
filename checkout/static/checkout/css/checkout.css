@@ -42,7 +42,7 @@ select option {
 }
 
 select:invalid,
-select option[value=""] {
+select option[value=""] 
     
 
 #loading-overlay {
