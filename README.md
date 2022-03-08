@@ -131,7 +131,7 @@ There was an exception and on a single product page , once running the validator
 
 The rest of the errors have been fixed.
 
-![image of passed html validator page]()
+![image of passed html validator page](/readme-images/jshint.jpg)
 
 
 [CSS Validator Page](https://jigsaw.w3.org/css-validator/)
