@@ -58,7 +58,7 @@ Review section for the individual product
  * delivery options
  * contact form, so customers can easily communicate with us.
  * more developed footer
-
+ * to add a favicon icon
 
  ## User Goals
 
@@ -131,6 +131,7 @@ The seperate models that were to be made independently were taken from , isnpire
 * favourite page and review section still needs a little message for the users , when there is nothing on the list and no reviews
 * arrow that takes us to be up the page is not visible
 * color of the font on the buttons in the allauth forms 
+* loading toggle after the checkout should be working after completeing the form , not meanwhile
 
 ## Testing
 
