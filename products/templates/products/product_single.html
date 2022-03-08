@@ -39,7 +39,6 @@
                         {% else %}
                         <div>
                             <a href="{% url 'favourite_add' product.id %}" class=""><i class="fas fa-heart icon-color"></i></a>
-                            </button>
                           </div>
                     {% endif %}
                   {% else %}
@@ -182,8 +181,6 @@
                 </div>
             </div>
         </div>
-        </div>
-    </div>
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}

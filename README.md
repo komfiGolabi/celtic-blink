@@ -119,14 +119,17 @@ The seperate models that were to be made independently were taken from , isnpire
 ### Existing Bug
 
 * when pressing the arrow up, the arrows disappear-need to be corrected
-* 
+* color of the font on the buttons in the allauth forms 
 
 ## Testing
 
 [HTML Validator Page](https://validator.w3.org/)
 
 Html validation was throwing errors when used the code from the working environment, so the validation was made by opening the website and using the view source option, when right clicking on the mouse and then validated.
-It passed the validation, all pages had the same warning. The rest of the errors has been fixed.
+It passed the validation, all pages had the same warning.
+There was an exception and on a single product page , once running the validator from the source page, the error appeared, that included the url-leading to login page.
+
+The rest of the errors have been fixed.
 
 ![image of passed html validator page]()
 

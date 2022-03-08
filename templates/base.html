@@ -12,8 +12,7 @@
     {% endblock %}
 
     {% block extra_meta %}
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
+    
     {% endblock %}
 
     {% block corecss %}
@@ -24,7 +23,8 @@
     {% endblock %}
 
     {% block extra_css %}
-    <link rel="icon" type="image/png" sizes="16x16"  href="/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     {% endblock %}
 
     {% block corejs %}
@@ -42,7 +42,7 @@
     <title>Celtic Blink {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <!-------------------Navigation Bar------------------------------------------------->
+    <!--Navigation Bar-->
     <header class="container-fluid fixed-top">
         <div class="row bg-white pt-lg-2 d-none d-lg-flex" id="topnav">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">

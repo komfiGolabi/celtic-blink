@@ -56,8 +56,7 @@ def favourite_list(request):
     new = Product.objects.filter(favourites=request.user)
     context = {
         'new': new,
-    }
-    
+    }  
     return render(request, 'profiles/favourite.html', context)
 
 
