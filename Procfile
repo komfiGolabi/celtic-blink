@@ -1,1 +1,0 @@
-web: gunicorn celtic_blink.wsgi:application
